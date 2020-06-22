@@ -30,5 +30,6 @@
   ],
   "permissions": [
     "tabs"
-  ]
+  ],
+  "omnibox": { "keyword": "go" }
 }
