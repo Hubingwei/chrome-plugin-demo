@@ -18,3 +18,16 @@ function sendMessageToPopup(message) {
 		console.log('收到来自pop或者background的回复，' + response);
 	});
 }
+
+// 监听长连接
+chrome.runtime.onConnect.addListener(function(port) {
+	console.log(port);
+	if(port.name == 'popup') {
+		port.onMessage.addListener(function(request) {
+      console.log('收到popup发的长连接消息：', request);
+      if (typeof request !== 'object' || !request.stop) {
+        port.postMessage('你好！我是content-script！')
+      }
+		});
+	}
+});

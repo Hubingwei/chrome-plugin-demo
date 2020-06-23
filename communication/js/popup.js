@@ -19,6 +19,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   sendResponse('你好，我是pop, 我收到了消息!');
 });
 
+$('#connect_to_content_script').click(() => {
+  getCurrentTabId(function (tabId) {
+    if (tabId == null) {
+      alert('无法获取tabId, 运行终止');
+      return;
+    }
+
+    const port = chrome.tabs.connect(tabId, { name: 'popup' });
+    port.postMessage('你好，我是popup!');
+    port.onMessage.addListener(function (msg) {
+      console.log('收到content-script发送的消息：', msg);
+      port.postMessage({ msg: '你好，我是popup，我再次发送消息！', stop: true});
+    });
+  });
+});
+
 // 获取当前选项卡ID
 function getCurrentTabId(callback)
 {
