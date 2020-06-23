@@ -3,18 +3,18 @@ console.log('content.js 已注入')
 
 // 接收传递过来的消息
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  console.log('收到来自 ' + (sender.tab ? "content-script(" + sender.tab.url + ")" : "popup或者background") + ' 的消息：', request);
+  console.log('收到来自popup或者background发送的消息：' + request);
 
   setTimeout(() => {
     sendMessageToPopup();
-  }, 2000);
+  }, 4000);
 
-  sendResponse('我收到你的消息了：' + JSON.stringify(request));
+  sendResponse('你好，我是content-script!');
 });
 
 // 主动发送消息给popup
 function sendMessageToPopup(message) {
-	chrome.runtime.sendMessage({greeting: message || '你好，我是content-script呀，我主动发消息给后台！'}, function(response) {
-		console.log('收到来自后台的回复：' + response);
+	chrome.runtime.sendMessage('你好，我是content-script，我在主动发消息', function(response) {
+		console.log('收到来自pop或者background的回复，' + response);
 	});
 }

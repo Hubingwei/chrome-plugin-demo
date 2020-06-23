@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "content-menu",
+  "version": "1.0.0",
+  "description": "右键菜单",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "scripts": [
+      "./js/background.js"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs"
+  ]
+}

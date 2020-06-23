@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "override",
+  "version": "1.0.0",
+  "description": "页面覆盖",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "override.html"
+  }
+}

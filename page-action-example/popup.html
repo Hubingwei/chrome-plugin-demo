@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Plugin</title>
     <style>
-        body {
-            width: 500px;
-            padding: 20px;
+        #popup {
+            width: 300px;
+            height: 150px;
         }
     </style>
 </head>
 <body>
-    <h3>popup与content-scripts交互</h3>
-    <div>
-        <a href="#" id="send_message_to_content_script">短连接发消息到content-scripts</a>
-        <!-- <a href="#" id="connect_to_content_script">长连接发消息到content-scripts</a> -->
+    <div id="popup">
+        这是一个page_action示例插件
     </div>
 
     <script src="./lib/jquery-3.5.1.js"></script>

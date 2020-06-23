@@ -50,6 +50,11 @@ const manifest = {
     "page": "background.html"
     //"scripts": ["js/background.js"]
   },
+  "background":
+	{
+		"scripts": ["event-page.js"],
+		"persistent": false
+	},
   // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
   "browser_action":
   {
